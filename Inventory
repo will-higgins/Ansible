@@ -1,0 +1,15 @@
+## Ansible Inventory to store details about Devices
+
+
+
+---
+all:
+  hosts:
+    home-switch1:
+      ansible_host: x.x.x.x
+      ansible_connection: [State the connection type]
+      ansible_network_os: [the type of OS for the device]
+      ansible_user: [this is the username]
+      ansible_password: {this is the password]
+
+## ansible user & password will be replaced with ansible vault as this is a better way.
