@@ -1,0 +1,14 @@
+---
+- name: gather facts
+  hosts: all
+  gather_facts: no
+
+# Gather Facts about the cisco switch
+
+  tasks:
+  - name: nxos facts
+    nxos_facts:
+      gather_network_resources:
+        - prefix_lists
+    register: noxs_prefix_list
+    
