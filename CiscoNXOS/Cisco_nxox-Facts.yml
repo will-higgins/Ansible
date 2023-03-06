@@ -1,0 +1,21 @@
+## PLaybook to gather facts from a Cisco NXOS Devices 
+## in this one i am going to gather factrs, then will try to print the output into a excel file for better reading.
+
+---
+- name: gather facts
+ hosts: all
+ gather_facts: no
+ 
+ tasks:
+ - name: nxos facts
+  nxos_facts:
+    gather_network_resources:
+      - prefix-lists
+    register: nxos_prefix_list
+    
+    
+## run the python script to convert to an excel fule to view
+- name: run python script
+  script: fortmat_and_write_to_excel.py
+  args:
+    nxos_prefix_list:"{{nxos_prefix_list.stdout[0]}}"
